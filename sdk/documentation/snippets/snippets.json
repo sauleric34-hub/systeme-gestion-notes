@@ -1,0 +1,12 @@
+{
+  "endpoints": {
+    "/students": {
+      "get": "from new_specification_sdk import NewSpecificationSdk\n\nsdk = NewSpecificationSdk(\n    api_key=\"YOUR_API_KEY\",\n    api_key_header=\"YOUR_API_KEY_HEADER\",\n    timeout=10000\n)\n\nresult = sdk.students.get_students()\n\nprint(result)\n",
+      "post": "from new_specification_sdk import NewSpecificationSdk\nfrom new_specification_sdk.models import Student\n\nsdk = NewSpecificationSdk(\n    api_key=\"YOUR_API_KEY\",\n    api_key_header=\"YOUR_API_KEY_HEADER\",\n    timeout=10000\n)\n\nrequest_body = Student(\n    id_=\"MAT-2026-001\",\n    name=\"Jean Dupont\",\n    email=\"jean.dupont@email.com\"\n)\n\nresult = sdk.students.create_students(request_body=request_body)\n\nprint(result)\n"
+    },
+    "/grades": {
+      "post": "from new_specification_sdk import NewSpecificationSdk\nfrom new_specification_sdk.models import Grade\n\nsdk = NewSpecificationSdk(\n    api_key=\"YOUR_API_KEY\",\n    api_key_header=\"YOUR_API_KEY_HEADER\",\n    timeout=10000\n)\n\nrequest_body = Grade(\n    student_id=\"MAT-2026-001\",\n    subject=\"Mathématiques\",\n    score=16.5,\n    date_=\"2026-04-19\"\n)\n\nresult = sdk.grades.create_grades(request_body=request_body)\n\nprint(result)\n"
+    }
+  },
+  "example": "from new_specification_sdk import NewSpecificationSdk\n\nsdk = NewSpecificationSdk(\n    api_key=\"YOUR_API_KEY\",\n    api_key_header=\"YOUR_API_KEY_HEADER\",\n    timeout=10000\n)\n\nresult = sdk.students.get_students()\n\nprint(result)\n"
+}

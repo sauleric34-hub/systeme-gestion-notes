@@ -1,0 +1,185 @@
+{
+  "liblabVersion": "1.0.4",
+  "date": "2026-04-19T21:44:30.075Z",
+  "config": {
+    "languages": ["python"],
+    "deliveryMethods": ["zip"],
+    "languageOptions": {
+      "python": {
+        "alwaysInitializeOptionals": false,
+        "pypiPackageName": "",
+        "githubRepoName": "",
+        "ignoreFiles": [],
+        "liblabVersion": "2"
+      },
+      "typescript": {
+        "bundle": true,
+        "exportClassDefault": false,
+        "httpClient": "fetch",
+        "npmName": "",
+        "npmOrg": "",
+        "githubRepoName": "",
+        "ignoreFiles": [],
+        "liblabVersion": "2",
+        "generateEnumAs": "union"
+      },
+      "go": {
+        "goModuleName": "",
+        "githubRepoName": "",
+        "ignoreFiles": [],
+        "liblabVersion": "2"
+      },
+      "java": {
+        "groupId": "",
+        "artifactId": "",
+        "ignoreFiles": [],
+        "liblabVersion": "2"
+      },
+      "php": {
+        "composerVendorName": "",
+        "composerPackageName": "",
+        "githubRepoName": "",
+        "ignoreFiles": [],
+        "liblabVersion": "2"
+      },
+      "csharp": {
+        "ignoreFiles": [],
+        "liblabVersion": "2",
+        "renameIllegalModelProperties": true,
+        "useOptionalWrapper": true,
+        "validateResponses": false
+      },
+      "cli": {
+        "ignoreFiles": [],
+        "liblabVersion": "2"
+      },
+      "kotlin": {
+        "groupId": "",
+        "artifactId": "",
+        "ignoreFiles": [],
+        "liblabVersion": "2"
+      },
+      "ruby": {
+        "githubRepoName": "",
+        "ignoreFiles": [],
+        "liblabVersion": "2"
+      }
+    },
+    "includeWatermark": false,
+    "responseHeaders": false,
+    "sdkName": "new-specification-sdk",
+    "sdkVersion": "1.0.0",
+    "alwaysInitializeOptionals": false,
+    "pypiPackageName": "",
+    "githubRepoName": "",
+    "ignoreFiles": [],
+    "liblabVersion": "2",
+    "language": "python",
+    "deliveryMethod": "zip",
+    "hooks": {
+      "enabled": false,
+      "sourceDir": ""
+    },
+    "usesFormData": false,
+    "authentication": {},
+    "environmentVariables": [],
+    "fileOutput": "/tmp",
+    "inferServiceNames": false,
+    "httpLibrary": {
+      "name": "axios",
+      "packages": {
+        "axios": "^1.13.2"
+      },
+      "languages": ["typescript"]
+    },
+    "auth": [],
+    "retry": {
+      "enabled": true,
+      "maxAttempts": 3,
+      "retryDelay": 150,
+      "maxDelay": 5000,
+      "retryDelayJitter": 50,
+      "backOffFactor": 2,
+      "httpMethodsToRetry": ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"]
+    },
+    "multiTenant": false,
+    "customQueries": {
+      "paths": [],
+      "rawQueries": [],
+      "queriesData": []
+    },
+    "devContainer": false,
+    "ai": false,
+    "includeOptionalSnippetParameters": true,
+    "specType": "openapi",
+    "deprecatedOperations": {
+      "include": true
+    },
+    "multipleResponses": {
+      "enabled": false
+    }
+  },
+  "files": [
+    "src/new_specification_sdk/models/utils/base_model.py",
+    "src/new_specification_sdk/models/utils/base_error.py",
+    "src/new_specification_sdk/models/utils/json_map.py",
+    "src/new_specification_sdk/models/__init__.py",
+    "src/new_specification_sdk/services/__init__.py",
+    "src/new_specification_sdk/services/utils/__init__.py",
+    "src/new_specification_sdk/__init__.py",
+    "src/new_specification_sdk/net/__init__.py",
+    "src/new_specification_sdk/net/headers/__init__.py",
+    "src/new_specification_sdk/net/transport/__init__.py",
+    "src/new_specification_sdk/net/environment/__init__.py",
+    "src/new_specification_sdk/net/request_chain/__init__.py",
+    "src/new_specification_sdk/net/request_chain/handlers/__init__.py",
+    "src/new_specification_sdk/models/utils/__init__.py",
+    "src/new_specification_sdk/services/async_/__init__.py",
+    "src/new_specification_sdk/services/async_/utils/__init__.py",
+    "src/new_specification_sdk/net/transport/request.py",
+    "src/new_specification_sdk/net/transport/response.py",
+    "src/new_specification_sdk/net/transport/api_error.py",
+    "src/new_specification_sdk/net/transport/request_error.py",
+    "src/new_specification_sdk/sdk.py",
+    "src/new_specification_sdk/net/transport/serializer.py",
+    "src/new_specification_sdk/services/utils/validator.py",
+    "src/new_specification_sdk/services/utils/base_service.py",
+    "pyproject.toml",
+    ".gitignore",
+    "src/new_specification_sdk/models/utils/cast_models.py",
+    "src/new_specification_sdk/net/transport/utils.py",
+    "install.sh",
+    "install.cmd",
+    "examples/install.sh",
+    "examples/install.cmd",
+    "src/new_specification_sdk/net/headers/base_header.py",
+    "src/new_specification_sdk/net/headers/api_key_auth.py",
+    "src/new_specification_sdk/net/environment/environment.py",
+    "src/new_specification_sdk/net/request_chain/request_chain.py",
+    "src/new_specification_sdk/net/request_chain/handlers/base_handler.py",
+    "src/new_specification_sdk/net/request_chain/handlers/http_handler.py",
+    "src/new_specification_sdk/net/request_chain/handlers/retry_handler.py",
+    "examples/sample.py",
+    "src/new_specification_sdk/services/utils/default_headers.py",
+    "documentation/snippets/snippets.json",
+    "documentation/models/Student.md",
+    "documentation/models/Grade.md",
+    "src/new_specification_sdk/models/utils/one_of_base_model.py",
+    "src/new_specification_sdk/services/async_/utils/to_async.py",
+    "src/new_specification_sdk/services/async_/students.py",
+    "src/new_specification_sdk/services/async_/grades.py",
+    "src/new_specification_sdk/sdk_async.py",
+    "src/new_specification_sdk/models/utils/sentinel.py",
+    ".env.example",
+    "examples/.env.example",
+    "src/new_specification_sdk/net/sdk_config.py",
+    "src/new_specification_sdk/services/grades.py",
+    "documentation/services/GradesService.md",
+    "src/new_specification_sdk/models/student.py",
+    "src/new_specification_sdk/models/grade.py",
+    "src/new_specification_sdk/services/students.py",
+    "documentation/services/StudentsService.md",
+    "README.md",
+    "PyPI_README.md"
+  ]
+}
