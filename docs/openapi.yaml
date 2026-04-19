@@ -1,0 +1,220 @@
+openapi: '3.0.0'
+info:
+  version: '1.0.0'
+  title: 'Student Grading API - Groupe 10'
+  description: |
+    API complète pour la gestion des étudiants, des matières et du suivi des performances académiques.
+    Cette version inclut le support pour le dashboard, la gestion des matières et les routes imbriquées pour les notes.
+  contact:
+    name: "Saul Eric - Groupe 10"
+
+servers:
+  - url: http://localhost:5000
+    description: Serveur de développement local
+
+security:
+  - ApiKeyAuth: []
+
+paths:
+  /students:
+    get:
+      summary: Récupérer la liste de tous les étudiants
+      responses:
+        '200':
+          description: Liste des étudiants récupérée avec succès
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Student'
+    post:
+      summary: Enregistrer un nouvel étudiant
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '201':
+          description: Étudiant créé avec succès
+
+  /students/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    put:
+      summary: Mettre à jour un étudiant
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '200':
+          description: Étudiant mis à jour
+    delete:
+      summary: Supprimer un étudiant
+      responses:
+        '200':
+          description: Étudiant supprimé avec succès
+
+  /students/{id}/grades:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      summary: Récupérer les notes d'un étudiant spécifique
+      responses:
+        '200':
+          description: Liste des notes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Grade'
+    post:
+      summary: Ajouter une note à un étudiant spécifique
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Grade'
+      responses:
+        '201':
+          description: Note enregistrée
+
+  /subjects:
+    get:
+      summary: Liste des matières
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Créer une matière
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Subject'
+      responses:
+        '201':
+          description: Créée
+
+  /subjects/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    put:
+      summary: Modifier une matière
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: Supprimer une matière
+      responses:
+        '200':
+          description: OK
+
+  /grades:
+    post:
+      summary: Ajouter une note (méthode globale)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Grade'
+      responses:
+        '201':
+          description: Note enregistrée avec succès
+
+  /grades/{id}:
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+    delete:
+      summary: Supprimer une note spécifique
+      responses:
+        '200':
+          description: Note supprimée
+
+components:
+  schemas:
+    Student:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+          example: "MAT-2026-001"
+        name:
+          type: string
+          example: "Jean Dupont"
+        email:
+          type: string
+          format: email
+          example: "jean.dupont@email.com"
+
+    Subject:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+          example: "MATH101"
+        name:
+          type: string
+          example: "Mathématiques"
+
+    Grade:
+      type: object
+      required:
+        - student_id
+        - subject_id
+        - grade
+      properties:
+        id:
+          type: string
+          description: ID généré automatiquement par le serveur
+        student_id:
+          type: string
+          example: "MAT-2026-001"
+        subject_id:
+          type: string
+          example: "MATH101"
+        grade:
+          type: number
+          format: float
+          example: 16.5
+        date:
+          type: string
+          format: date
+          example: "2026-04-19"
+
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
